@@ -1,0 +1,66 @@
+@use 'resets';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    @extend %resets;
+}
+
+$main-green: #4D861F;
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f5;
+    font-family: 'Playfair Display', serif;
+}
+
+
+main {
+    width: 360px; 
+    height: 640px;
+    background-color: #ffffff;
+    border-radius: 30px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+
+
+    img {
+       max-width: 80%; 
+       max-height: 80%;
+       transform: scale(0.8);   
+       animation: logoGrow 1.5s ease forwards 0.5s; 
+     
+    }
+
+ 
+}
+.app-name {
+    font-size: 48px;
+    color: #333333;
+    font-weight: bold;
+    opacity: 0;               
+    margin-top: 20px;
+    animation: fadeInText 1s ease forwards 2s; 
+  }
+
+  @keyframes logoGrow {
+    to {
+      opacity: 1;
+      transform: scale(1); 
+    }
+  }
+  
+
+  @keyframes fadeInText {
+    to {
+      opacity: 1;
+    }
+  }
+  
