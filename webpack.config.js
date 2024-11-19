@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+
   entry: './src/index.js', 
   output: {
     filename: 'bundle.js',
@@ -13,12 +14,22 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader', 
+        },
+      },
+      {
         test: /\.html$/,
         use: ['html-loader'], 
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i, 
         type: 'asset/resource', 
+        generator: {
+          filename: 'assets/images/[name][ext]', 
+        },
       },
       {
         test: /\.scss$/, 

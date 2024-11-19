@@ -14,9 +14,8 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f0f0f5;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif; 
 }
-
 
 main {
     width: 360px; 
@@ -29,6 +28,8 @@ main {
     align-items: center;
     overflow: hidden;
     flex-direction: column;
+    overflow: hidden;
+    position: relative;
 
 
     img {
@@ -38,29 +39,231 @@ main {
        animation: logoGrow 1.5s ease forwards 0.5s; 
      
     }
+   
+    .logo-section {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInLogo 2s ease forwards;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+ 
+    .logo {
+      max-width: 100px;
+      height: auto;
+      opacity: 0;
+      transform: scale(0);
+      animation: logoGrow 1s ease forwards;
+    }
+
+    .app-name {
+        font-size: 48px;
+        color: #333333;
+        font-weight: bold;
+        opacity: 0;               
+        margin-top: 20px;
+        animation: fadeInText 1s ease forwards 2s; 
+      }
+}
+.slider {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.slider--slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slider--image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.scrollbar {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.scrollbar__label {
+  width: 1rem;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: #C5C5C5;
+}
+
+.scrollbar__label:has(.scrollbar__radio:checked) {
+  margin: 0 1.5rem;
+}
+
+.scrollbar__label:has(.scrollbar__radio:checked)::after {
+content: '';
+display: block;
+width: 4rem;
+height: 100%;
+background-color: #4D861F;
+border-radius: 1rem;
+transform: translateX(-1.5rem);
+}
+
+.scrollbar__radio {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.buttons__button {
+  text-align: center;
+  padding: 1rem 3rem;
+  border: 2px solid;
+  color: #4D861F;
+  text-decoration: none;
+  border-radius: 10rem;
+  width: 100%;
+}
+/*.onboarding-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  &.hidden {
+    display: none;
+  }
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.slide {
+  flex: 1 0 100%;
+}
+
+.text-container {
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.dots {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    cursor: pointer;
+
+    &.active {
+      background-color: $main-green;
+    }
+  }
+}
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+
+  .btn-white-green {
+    background-color: white;
+    color: $main-green;
+    border: 2px solid $main-green;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $main-green;
+      color: white;
+    }
+  }
 
  
-}
-.app-name {
-    font-size: 48px;
-    color: #333333;
+  .btn-green-white {
+    background-color: $main-green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
     font-weight: bold;
-    opacity: 0;               
-    margin-top: 20px;
-    animation: fadeInText 1s ease forwards 2s; 
-  }
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
 
-  @keyframes logoGrow {
-    to {
-      opacity: 1;
-      transform: scale(1); 
+    &:hover {
+      background-color: $main-green;
     }
   }
+}*/
+
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+  @keyframes logoGrow {
+    0% {
+      opacity: 0;
+      transform: scale(0); 
+     } 
+     100% {
+      opacity: 1;
+      transform: scale(1);
+     }
+   }
   
 
-  @keyframes fadeInText {
-    to {
-      opacity: 1;
-    }
-  }
   
