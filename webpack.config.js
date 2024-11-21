@@ -61,44 +61,45 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './src/html/index.html',
       inject: true,
       chunks: ['index'],
       filename: 'index.html',
+  
     }),
     new HtmlWebpackPlugin({
-      template: './public/login-page.html',
+      template: './src/html/login-page.html',
       inject: true,
       chunks: ['loginpage'],
       filename: 'login-page.html',
     }),
     new HtmlWebpackPlugin({
-      template: './public/home.html',
+      template: './src/html/home.html',
       inject: true,
       chunks: ['home'],
       filename: 'home.html',
     }),
     new HtmlWebpackPlugin({
-      template: './public/popular.html',
+      template: './src/html/popular.html',
       inject: true,
       chunks: ['popular'],
       filename: 'popular.html',
     }),
     new HtmlWebpackPlugin({
-      template: './public/archive.html',
+      template: './src/html/archive.html',
       inject: true,
       chunks: ['archive'],
       filename: 'archive.html',
     }),
     new HtmlWebpackPlugin({
-      template: './public/settings.html',
+      template: './src/html/settings.html',
       inject: true,
       chunks: ['settings'],
       filename: 'settings.html',
     }),
   ],
   devServer: {
-    static: path.join(__dirname, 'public'),
+    static: path.join(__dirname, 'src'),
     port: 8081,
     hot: true,
     open: true,
