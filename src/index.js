@@ -4,31 +4,27 @@ bar();
 
 import './scss/style.scss';
 
-
 import Onboarding1 from './img/Onboarding1.png';
 import Onboarding2 from './img/Onboarding2.png';
 import Onboarding3 from './img/Onboarding3.png';
 import logo from './img/newsify_logo1.png';
 
 document.addEventListener('DOMContentLoaded', () => {
+  const logoSection = document.querySelector('.logo-section');
+  const slider = document.querySelector('.slider');
+  const scrollbar = document.querySelector('.scrollbar');
+  const buttons = document.querySelector('.buttons');
+  const logoContainer = document.querySelector('.logo-container2');
 
+  // logo image above the app name
   const img = document.createElement('img');
-  img.src = logo; 
-  img.alt = 'logo';
+  img.src = logo;
+  img.alt = 'Newsify Logo';
   img.classList.add('logo');
-  
-  document.querySelector('.logo-section').appendChild(img);
+  logoSection.prepend(img);
+  logoContainer.append(img);
 
-
-  setTimeout(() => {
-    document.querySelector('.logo-section').style.display = 'none'; 
-    document.querySelector('.slider').classList.remove('hidden'); 
-  }, 1500); 
-
- 
-  const sliderElement = document.querySelector('.slider');
-  const slides = Array.from(sliderElement.querySelectorAll('.slider--slide'));
-
+  // slider content
   const sliderContent = [
     {
       img: Onboarding1,
@@ -47,46 +43,66 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ];
 
-
+  // populate slider
+  const slides = Array.from(slider.querySelectorAll('.slider--slide'));
   slides.forEach((slide, index) => {
-    const content = sliderContent[index]; 
+    const content = sliderContent[index];
     if (content) {
       const imgDiv = slide.querySelector('div');
       const titleElement = slide.querySelector('h2');
       const textElement = slide.querySelector('p');
-      
-   
+
       imgDiv.style.backgroundImage = `url(${content.img})`;
       imgDiv.style.backgroundSize = 'cover';
       imgDiv.style.backgroundPosition = 'center';
-      imgDiv.style.height = '200px'; 
-      
-     
+      imgDiv.style.height = '200px';
+
       titleElement.textContent = content.title;
       textElement.textContent = content.text;
     }
   });
 
+  // initially hide slider, scrollbar, and buttons
+  slider.style.visibility = 'hidden';
+  slider.style.opacity = '0';
+  scrollbar.style.visibility = 'hidden';
+  scrollbar.style.opacity = '0';
+  buttons.style.visibility = 'hidden';
+  buttons.style.opacity = '0';
 
-  const radioElements = Array.from(document.querySelectorAll('.scrollbar__radio'));
-  const continueButton = document.querySelector('.continue');
-
-  const sliderWidth = Math.ceil(sliderElement.getBoundingClientRect().width);
-
-  radioElements.forEach((element, index) =>
-    element.addEventListener('change', () => {
-      sliderElement.scrollTo(sliderWidth * index, 0);
-    })
-  );
-
-  continueButton.addEventListener('click', () => {
-    const checkedRadio = radioElements.find(radio => radio.checked);
-    const nextRadioButton = checkedRadio?.parentElement?.nextElementSibling;
-
-    if (nextRadioButton === null || !nextRadioButton) {
-      window.location = './login-page.html';
-    } else {
-      nextRadioButton.querySelector('input').click();
-    }
-  });
+  // show slider, scrollbar, and buttons after splash screen
+  setTimeout(() => {
+    logoSection.style.display = 'none'; 
+    slider.style.visibility = 'visible';
+    slider.style.opacity = '1';
+    scrollbar.style.visibility = 'visible';
+    scrollbar.style.opacity = '1';
+    buttons.style.visibility = 'visible';
+    buttons.style.opacity = '1';
+  }, 2000); 
 });
+
+// slider
+const sliderElement = document.querySelector('.slider');
+const continueButton = document.querySelector('.continue');
+const radioElements = Array.from(document.querySelectorAll('.scrollbar__radio'));
+
+const sliderWidth = Math.ceil(sliderElement.getBoundingClientRect().width);
+
+radioElements.forEach((element, index)=> element.addEventListener('change', () => {
+    sliderElement.scrollTo(sliderWidth * index, 0);
+}));
+
+continueButton.addEventListener('click', () => {
+   const checkedRadio = radioElements.find(radio => radio.checked);
+   const nextRadioButton = checkedRadio.parentElement.nextElementSibling;
+
+   if (nextRadioButton === null) {
+    window.location = './login-page.html';
+   } else {
+    nextRadioButton.click();
+   }
+
+
+});
+

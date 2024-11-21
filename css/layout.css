@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f5;
+  font-family: "Playfair Display", serif;
+}
+
+main {
+  width: 360px;
+  height: 640px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+main img {
+  max-width: 80%;
+  max-height: 80%;
+  transform: scale(0.8);
+  animation: grow-logo 1.5s ease forwards 0.5s;
+}
+main .logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  animation: fade-out 0.5s ease-in-out forwards;
+  animation-delay: 1.5s;
+}
+main .logo-section.hidden {
+  display: none;
+}
+main .logo-section .logo {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 16px;
+  animation: grow-logo 1.5s ease-in-out;
+}
+main .logo-section .app-name {
+  font-size: 48px;
+  color: #333333;
+  font-weight: bold;
+  margin-top: 20px;
+  animation: fade-in 0.8s ease-in forwards;
+  animation-delay: 0.5s;
+}
+main .slider,
+main .scrollbar,
+main .buttons {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s;
+}
+main .slider {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+main .visible {
+  visibility: visible;
+  opacity: 1;
+}
+main .slider--slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+main .slider--image {
+  width: 100%;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 20px;
+}
+main .scrollbar {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 20px;
+}
+main .scrollbar__label {
+  width: 1rem;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: #c5c5c5;
+}
+main .scrollbar__label:has(.scrollbar__radio:checked) {
+  margin: 0 1.5rem;
+}
+main .scrollbar__label:has(.scrollbar__radio:checked)::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 100%;
+  background-color: #4d861f;
+  border-radius: 1rem;
+  transform: translateX(-1.5rem);
+}
+main .scrollbar__radio {
+  display: none;
+}
+main .buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  padding: 20px;
+}
+main .buttons__button {
+  text-align: center;
+  padding: 1rem 3rem;
+  border: 2px solid;
+  color: #4d861f;
+  text-decoration: none;
+  border-radius: 10rem;
+  width: 100%;
+}
+main .continue {
+  background-color: #4d861f;
+  color: white;
+}
+main .space {
+  margin: 20px;
+  margin-top: 50px;
+}
+main .more {
+  padding: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+main .p {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes grow-logo {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/*login page*/
+.wrapper {
+  padding: 25px;
+}
+
+.logo-container {
+  padding: 20px;
+}
+
+.app-name2 {
+  text-align: center;
+}
+
+.welcome-message {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.social-button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.social-button:hover {
+  background-color: #f5f5f5;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.divider .line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #000;
+}
+.divider p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.password-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #4d861f;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.password-button:hover {
+  background-color: #3a6e18;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.signup-container p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+.signup-container .signup-link {
+  font-size: 14px;
+  font-weight: bold;
+  color: #4d861f;
+  text-decoration: none;
+}
+.signup-container .signup-link:hover {
+  text-decoration: underline;
+}
+
+/*home*/
+.logo-container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.logo-container2 .logo {
+  width: 50px;
+  height: auto;
+  margin-right: 0.5rem;
+}
+
+.logo-container2 .app-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 90%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* Dropdown Menu */
+.news-dropdown {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.dropdown {
+  margin-bottom: 1rem;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4d861f;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown-content {
+  display: none;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.dropdown-content article {
+  margin-bottom: 1rem;
+}
+
+.dropdown-button:focus + .dropdown-content {
+  display: block;
+}
+
+/* Footer */
+footer {
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  text-align: center;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer-nav i {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.footer-nav span {
+  font-size: 12px;
+  display: block;
+}/*# sourceMappingURL=layout.css.map */

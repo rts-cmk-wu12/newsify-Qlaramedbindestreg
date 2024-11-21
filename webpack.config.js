@@ -4,9 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
 
-  entry: './src/index.js', 
+  entry: {
+    index: './src/index.js', 
+    loginpage: './src/login-page.js',
+    home: './src/home.js',
+    popular: './src/popular.js',
+    archive: './src/archive.js',
+    settings: './src/settings.js'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true, 
   },
@@ -62,7 +69,43 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html', 
-      inject: true
+      inject: true,
+      chunks: ['index']
+    }),
+  ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/login-page.html', 
+      inject: true,
+      chunks: ['loginpage']
+    }),
+  ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/home.html', 
+      inject: true,
+      chunks: ['home']
+    }),
+  ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/popular.html', 
+      inject: true,
+      chunks: ['popular']
+    }),
+  ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/archive.html', 
+      inject: true,
+      chunks: ['archive']
+    }),
+  ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/settings.html', 
+      inject: true,
+      chunks: ['settings']
     }),
   ],
   devServer: {
