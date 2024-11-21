@@ -1,4 +1,4 @@
-import { fetchMostPopularByViews } from "./fetch";
+import { fetchMostPopularByViews } from "./js/fetch";
 //const { fetchMostPopularByViews } = require ("./fetch");
 
 const popularNews = await fetchMostPopularByViews();

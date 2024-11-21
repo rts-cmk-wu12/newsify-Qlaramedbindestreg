@@ -1,1 +1,1 @@
-console.log('This is the home page!');
+console.log('popular');

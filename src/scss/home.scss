@@ -1,0 +1,78 @@
+/*home*/
+
+.logo-container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0; 
+  }
+  
+  .logo-container2 .logo {
+    width: 50px; 
+    height: auto;
+    margin-right: 0.5rem;
+  }
+  
+  .logo-container2 .app-name {
+    font-size: 24px; 
+    font-weight: bold;
+    
+  }
+  
+  .search-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-input {
+    width: 90%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  
+  
+  /* dropdown menu */
+  .news-dropdown {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  
+  .dropdown {
+    margin-bottom: 1rem;
+  }
+  
+  .dropdown-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4d861f;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .dropdown-content {
+    display: none;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .dropdown-content article {
+    margin-bottom: 1rem;
+  }
+  
+  .dropdown-button:focus + .dropdown-content {
+    display: block;
+  }
+  
+  
