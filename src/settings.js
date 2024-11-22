@@ -1,6 +1,35 @@
 import './scss/style.scss';
 
-let switchElm = document.querySelector("#switch");
+import logo from './img/newsify_logo1.png';
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const logoSection = document.querySelector('.logo-container-settings');
+  const logoElement = document.createElement('img');
+  logoElement.src = logo;
+  logoElement.classList.add('logo-home'); 
+  logoElement.alt = 'Newsify Logo';
+  logoSection.prepend(logoElement);
+
+
+  const createLogoElement = () => {
+    const categoryLogo = document.createElement('img');
+    categoryLogo.src = logo;
+    categoryLogo.classList.add('logo-home'); 
+    categoryLogo.alt = 'Category Logo';
+    return categoryLogo;
+    
+  };
+
+  const categoryNames = document.querySelectorAll('.category-name');
+  categoryNames.forEach(categoryName => {
+      const categoryLogo = createLogoElement(); 
+      categoryName.prepend(categoryLogo); 
+  });
+});
+
+
+/*let switchElm = document.querySelector("#switch");
 let rootElm = document.documentElement;
 let darkMode = localStorage.getItem("darkmode");
 let matched = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -34,4 +63,4 @@ switchElm.addEventListener("click", function() {
         enableLightmode()
         localStorage.setItem("darkmode", switchElm.checked )
     }
-})
+})*/

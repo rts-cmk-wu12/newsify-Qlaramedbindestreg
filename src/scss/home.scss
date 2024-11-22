@@ -7,10 +7,10 @@
     margin: 1rem 0; 
   }
   
-  .logo-container2 .logo {
-    width: 50px; 
-    height: auto;
-    margin-right: 0.5rem;
+  .logo-home {
+    width: 30px; 
+    height: 40px;
+    margin-right: 10px;
   }
   
   .logo-container2 .app-name {
@@ -19,6 +19,10 @@
     
   }
   
+  .logo-class {
+    height: 100px;
+    width: 50px;
+  }
   .search-form {
     width: 100%;
     display: flex;
@@ -43,7 +47,6 @@
   }
   
   .dropdown {
-  
     border-top: 1px solid black;
     border-bottom: 1px solid black;
   }
@@ -65,7 +68,6 @@
     display: none;
     padding: 0.5rem;
     margin-top: 0.5rem;
-  
     border: 1px solid #ccc;
     border-radius: 10px;
   }

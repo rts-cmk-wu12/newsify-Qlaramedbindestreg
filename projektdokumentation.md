@@ -35,6 +35,7 @@ Darkmode, Carsten's kode fra grundforløbet.
 Webpack konfiguration fra Webpack dokumentationen.
 Upload af billeder med Javascript fra Chatgpt.
 Jest test fra Chatgpt.
+Populate article content i home.js fra Chatgpt.
 
 
 ---

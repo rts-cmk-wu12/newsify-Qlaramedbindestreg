@@ -28,12 +28,7 @@ main {
   overflow: hidden;
   position: relative;
 
-  img {
-    max-width: 80%;
-    max-height: 80%;
-    transform: scale(0.8);
-    animation: grow-logo 1.5s ease forwards 0.5s;
-  }
+
 
   .logo-section {
     display: flex;
@@ -59,6 +54,10 @@ main {
       height: auto;
       margin-bottom: 16px;
       animation: grow-logo 1.5s ease-in-out;
+      max-width: 80%;
+      max-height: 80%;
+      transform: scale(0.8);
+ 
     }
 
     .app-name {

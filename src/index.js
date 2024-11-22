@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // initially hide slider, scrollbar, and buttons
+
   slider.style.visibility = 'hidden';
   slider.style.opacity = '0';
   scrollbar.style.visibility = 'hidden';
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buttons.style.visibility = 'hidden';
   buttons.style.opacity = '0';
 
-  // show slider, scrollbar, and buttons after splash screen
+
   setTimeout(() => {
     logoSection.style.display = 'none'; 
     slider.style.visibility = 'visible';
