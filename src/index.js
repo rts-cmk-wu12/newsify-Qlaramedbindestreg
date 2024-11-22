@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgDiv.style.backgroundImage = `url(${content.img})`;
       imgDiv.style.backgroundSize = 'cover';
       imgDiv.style.backgroundPosition = 'center';
-      imgDiv.style.height = '200px';
+      imgDiv.style.height = '300px';
 
       titleElement.textContent = content.title;
       textElement.textContent = content.text;
