@@ -1,0 +1,206 @@
+@use 'resets';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    @extend %resets;
+}
+
+$main-green: #4D861F;
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f5;
+  font-family: 'Playfair Display', serif;
+}
+
+main {
+  width: 360px;
+  height: 750px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+
+
+
+  .logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    animation: fade-out 0.5s ease-in-out forwards;
+    animation-delay: 1.5s;
+
+    &.hidden {
+      display: none;
+    }
+
+    .logo {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 16px;
+      animation: grow-logo 1.5s ease-in-out;
+      max-width: 80%;
+      max-height: 80%;
+      transform: scale(0.8);
+ 
+    }
+
+    .app-name {
+      font-size: 48px;
+      color: #333333;
+      font-weight: bold;
+      margin-top: 20px;
+      animation: fade-in 0.8s ease-in forwards;
+      animation-delay: 0.5s;
+
+    }
+  }
+
+  .slider,
+  .scrollbar,
+  .buttons {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s;
+ 
+
+  }
+
+  .slider {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .slider--slide {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .slider--image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    padding: 20px;
+  }
+
+  .scrollbar {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 20px;
+  }
+
+  .scrollbar__label {
+    width: 1rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: #c5c5c5;
+  }
+
+  .scrollbar__label:has(.scrollbar__radio:checked) {
+    margin: 0 1.5rem;
+  }
+
+  .scrollbar__label:has(.scrollbar__radio:checked)::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 100%;
+    background-color: #4d861f;
+    border-radius: 1rem;
+    transform: translateX(-1.5rem);
+  }
+
+  .scrollbar__radio {
+    display: none;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .buttons__button {
+    text-align: center;
+    padding: 1rem 3rem;
+    border: 2px solid;
+    color: #4d861f;
+    text-decoration: none;
+    border-radius: 10rem;
+    width: 100%;
+  }
+
+  .continue {
+    background-color: #4d861f;
+    color: white;
+  }
+
+  .space {
+    margin: 20px;
+    margin-top: 50px;
+  
+  }
+
+  .more {
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .p {
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+/* Animations */
+@keyframes grow-logo {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+

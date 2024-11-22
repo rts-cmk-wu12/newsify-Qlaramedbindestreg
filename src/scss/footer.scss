@@ -1,0 +1,35 @@
+/* Footer */
+footer {
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  text-align: center;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer-nav i {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.footer-nav span {
+  font-size: 12px;
+  display: block;
+}
