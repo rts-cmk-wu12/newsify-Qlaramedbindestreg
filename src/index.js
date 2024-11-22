@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const slider = document.querySelector('.slider');
   const scrollbar = document.querySelector('.scrollbar');
   const buttons = document.querySelector('.buttons');
-  const logoContainer = document.querySelector('.logo-container2');
+ 
 
   // logo image above the app name
   const img = document.createElement('img');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   img.alt = 'Newsify Logo';
   img.classList.add('logo');
   logoSection.prepend(img);
-  logoContainer.append(img);
+
 
   // slider content
   const sliderContent = [
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollbar.style.opacity = '1';
     buttons.style.visibility = 'visible';
     buttons.style.opacity = '1';
-  }, 2000); 
+  }, 1500); 
 });
 
 // slider

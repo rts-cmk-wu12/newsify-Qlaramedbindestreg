@@ -1,21 +1,50 @@
-const API_KEY = 'WS2sWpl8J2xj1BQb5e0KTdRgQqdlhNGO';
+import { fetchMostPopularByViews } from './fetchnytapi.js';
 
-const BASE_URL = 'https://api.nytimes.com/svc/';
 
-const endpoints = {
-    mostPopularByViews: 'mostpopular/v2/viewed/'
+function renderArticles(articles, category, dropdownContent) {
+  dropdownContent.innerHTML = ''; 
+  const filteredArticles = articles.filter((article) =>
+    article.section.toLowerCase().includes(category.toLowerCase())
+  );
 
+  if (filteredArticles.length === 0) {
+    dropdownContent.innerHTML = `<p>No articles found for ${category}.</p>`;
+    return;
+  }
+
+
+  filteredArticles.forEach((article) => {
+    const articleElement = document.createElement('article');
+    articleElement.innerHTML = `
+      <h2>${article.title}</h2>
+      <p>${article.abstract}</p>
+      <a href="${article.url}" target="_blank">Read More</a>
+    `;
+    dropdownContent.appendChild(articleElement);
+  });
 }
 
-export async function fetchMostPopularByViews(days = 1) {
-    const url = new URL(`${days}.json`, BASE_URL + endpoints.mostPopularByViews);
 
-    url.searchParams.set('api-key', API_KEY);
+async function initializeNewsDropdowns() {
+  const data = await fetchMostPopularByViews(); 
+  const articles = data.results || []; 
 
-    const response = await fetch(url);
-    const data = await response.json();
 
-    return data;
+  const dropdowns = [
+    { button: 'Europe', container: document.querySelector('.dropdown:nth-child(1) .dropdown-content') },
+    { button: 'Health', container: document.querySelector('.dropdown:nth-child(2) .dropdown-content') },
+    { button: 'Sport', container: document.querySelector('.dropdown:nth-child(3) .dropdown-content') },
+    { button: 'Business', container: document.querySelector('.dropdown:nth-child(4) .dropdown-content') },
+    { button: 'Travel', container: document.querySelector('.dropdown:nth-child(5) .dropdown-content') },
+  ];
+
+  dropdowns.forEach(({ button, container }) => {
+    const buttonElement = document.querySelector(`.dropdown-button:contains("${button}")`);
+    buttonElement.addEventListener('click', () => {
+      renderArticles(articles, button, container);
+    });
+  });
 }
 
-module.exports = { fetchMostPopularByViews };
+
+document.addEventListener('DOMContentLoaded', initializeNewsDropdowns);
