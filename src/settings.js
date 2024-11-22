@@ -1,3 +1,5 @@
+import './scss/style.scss';
+
 let switchElm = document.querySelector("#switch");
 let rootElm = document.documentElement;
 let darkMode = localStorage.getItem("darkmode");

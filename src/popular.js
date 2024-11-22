@@ -1,1 +1,1 @@
-console.log('popular');
+import './scss/style.scss';
