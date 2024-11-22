@@ -39,30 +39,33 @@
     flex-grow: 1;
     overflow-y: auto;
     padding: 1rem;
+    background-color: white;
   }
   
   .dropdown {
-    margin-bottom: 1rem;
+  
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
   }
   
   .dropdown-button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #4d861f;
-    color: #fff;
+    background-color: white;
     border: none;
     border-radius: 10px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     text-align: left;
+    padding: 20px;
   }
   
   .dropdown-content {
     display: none;
     padding: 0.5rem;
     margin-top: 0.5rem;
-    background-color: #f9f9f9;
+  
     border: 1px solid #ccc;
     border-radius: 10px;
   }

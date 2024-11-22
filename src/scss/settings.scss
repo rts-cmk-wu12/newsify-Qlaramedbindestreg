@@ -1,51 +1,43 @@
 /* settings*/
-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px;
-    background-color: #fff;
-  }
+
   
   .logo-container {
     display: flex;
     align-items: center;
+
   }
   
-  .logo {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+  .logo-container-settings {
+    font-size: 10px;
+    margin: 10px;
   }
   
-  .app-name {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
   
   .settings-title {
     font-size: 32px;
-    color: green;
-    margin: 20px 0;
+    color:  #4d861f;
+
+    text-align: center;
   }
   
   .category-section {
     margin: 20px 0;
+    
   }
   
   .category-heading {
     font-size: 24px;
     color: #333;
     margin-bottom: 10px;
+    text-align: center;
   }
   
-  /* Styles for category items */
+
   .category-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
     margin: 5px 0;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
@@ -80,12 +72,12 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #4d861f;
     transition: 0.4s;
     border-radius: 34px;
   }
   
-  .slider:before {
+  .slider2:before {
     position: absolute;
     content: "";
     height: 12px;
@@ -97,27 +89,31 @@ header {
     transition: 0.4s;
   }
   
-  input:checked + .slider {
-    background-color: #4CAF50;
+  input:checked + .slider2 {
+    background-color: #4d861f;
   }
   
-  input:checked + .slider:before {
+  input:checked + .slider2:before {
     transform: translateX(14px);
   }
   
   /* Button styles */
-  .dark-mode-toggle {
-    background-color: white;
-    border: 2px solid green;
-    color: green;
-    padding: 10px 20px;
+
+.styled-button {
+    background-color: white; 
+    color: #4d861f; 
+    border: 2px solid #4d861f; 
+    border-radius: 20px; 
+    padding: 10px 20px; 
     font-size: 16px;
     cursor: pointer;
-    margin-top: 20px;
-  }
+    transition: background-color 0.3s, color 0.3s; 
+    margin-left: 90px;
+    margin-bottom: 10px;
   
-  .dark-mode-toggle:hover {
-    background-color: green;
-    color: white;
-  }
-  
+}
+
+.styled-button:hover {
+    background-color: #4d861f; 
+    color: white; 
+}
